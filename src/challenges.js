@@ -119,42 +119,84 @@ let results =  [];
 function encode(string) {
   // seu código aqui
 
-  let a = '1';
-  let e = '2';
-
+  let separate = string.split('')
+  let results = 0;
 
   for (let i = 0; i < string.length; i++){
 
-    
-
-        if(string[i].length === 'a'){
-          string[i].length = '1'
-        } else if(string[i].length === 'e'){
-          string[i] += e
-        } else if(string[i].length === 'i'){
-          string[i].length = '3'
-        } else if(string[i].length === 'o'){
-          string[i].length = '4'
-        } else if(string[i].length === 'u'){
-          string[i].length = '5'
+        if(separate[i] === 'a'){
+          separate[i] = '1'
+        } else if(separate[i] === 'e'){
+          separate[i] = '2'
+        } else if(separate[i] === 'i'){
+          separate[i] = '3'
+        } else if(separate[i] === 'o'){
+          separate[i] = '4'
+        } else if(separate[i] === 'u'){
+          separate[i] = '5'
         }
-
-        return string
+        results = separate.join('')
   }
-
+  
+  return results
 
 }
-console.log(encode('hi there!'))
 
-
-function decode() {
+function decode(string) {
   // seu código aqui
+
+  let separate = string.split('')
+  let results = 0;
+
+  for (let i = 0; i < string.length; i++){
+
+        if(separate[i] === '1'){
+          separate[i] = 'a'
+        } else if(separate[i] === '2'){
+          separate[i] = 'e'
+        } else if(separate[i] === '3'){
+          separate[i] = 'i'
+        } else if(separate[i] === '4'){
+          separate[i] = 'o'
+        } else if(separate[i] === '5'){
+          separate[i] = 'u'
+        }
+        results = separate.join('')
+  }
+  
+  return results
 }
 
 // Desafio 10
-function techList() {
+function techList(tecnologias,nomepessoa) {
   // seu código aqui
+
+  if(tecnologias.length === 0 ){
+    return "Vazio!"
+  }
+
+tecnologias.sort()
+
+
+let arr = []
+
+  for(let i = 0; i < tecnologias.length; i++){
+
+    let results = {}
+
+     results['tech'] = tecnologias[i];
+     
+     results['name'] = nomepessoa;
+      
+      arr.push(results);
+      
+      
+  }
+
+
+  return arr
 }
+console.log(techList(['React', 'Jest', 'HTML', 'CSS', 'JavaScript'], 'Lucas'))
 
 module.exports = {
   calcArea,
